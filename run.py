@@ -4,7 +4,7 @@ from flask import request
 #from flask_ngrok import run_with_ngrok
 import json
 
-main = Flask(_name_)
+main = Flask(__name__)
 #run_with_ngrok(main)
 
 fileAbout='./about.json'
