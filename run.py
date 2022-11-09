@@ -53,5 +53,5 @@ def displayTP():
                     status=200,
                     mimetype="application/json")
 
-if _name_ == '_main_':
+if __name__ == '__main__':
   main.run()
