@@ -1,0 +1,15 @@
+{
+  "about": "Simple Weather Analysis over Central Java on November 7th 2022", 
+  "authors": [
+    {
+      "name": "Agita Vivi", 
+      "division": "Weather Prediction"
+    },{
+      "name": "Abdullah Ali", 
+      "division": "Weather Radar Operation"
+    },{
+      "name": "M. Irsal Yuliandri", 
+      "division": "Weather Prediction"
+      }
+  ]
+}

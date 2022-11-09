@@ -1,35 +1,57 @@
 from flask import Flask
 from flask import Response
-#from flask_ngrok import run_with_ngrok #hanya digunakan ketika menggunakan google colab dan tidak untuk di deploy ke heroku
+from flask import request
+#from flask_ngrok import run_with_ngrok
 import json
 
-f = open('./anscombe.json')
+main = Flask(_name_)
+#run_with_ngrok(main)
 
-geodata = json.load(f)
+fileAbout='./aboutProject.json'
+fileKI='./ki_clip.geojson'
+fileRH='./rh_clip_more70.geojson'
+fileMSLP='./mslp_clip.geojson'
+fileTP='./tp_clip_more0.geojson'
 
-pelatihan_ibf_app = Flask(__name__)
-#run_with_ngrok(pelatihan_ibf_app) #hanya digunakan ketika menggunakan google colab dan tidak untuk di deploy ke heroku  
+def openJSON(file):
+  with open(file) as f:
+    content=json.load(f)
+  return content
 
-@pelatihan_ibf_app.route('/')
-def send_json_data():
-    return Response(response=json.dumps(geodata),
-                    status=200,
-                    mimetype="application/json")
-    
-@pelatihan_ibf_app.route('/other-route')
-def send_json_data_other():
-    geodataspec = geodata[2]
-    return Response(response=json.dumps(geodataspec),
-                    status=200,
-                    mimetype="application/json")
-    
-@pelatihan_ibf_app.route('/other-route-two')
-def send_json_data_other_two():
-    geodataspec = geodata[1]["Series"]
-    return Response(response=json.dumps(geodataspec),
+@main.route("/")
+def helloWorld():
+  about=openJSON(fileAbout)
+  return Response(response=json.dumps(about),
                     status=200,
                     mimetype="application/json")
 
+@main.route("/ki")
+def displayKI():
+  ki=openJSON(fileKI)
+  return Response(response=json.dumps(ki),
+                    status=200,
+                    mimetype="application/json")
 
-if __name__ == '__main__':
-    pelatihan_ibf_app.run()
+@main.route("/rh")
+def displayRH():
+  rh=openJSON(fileRH)
+  return Response(response=json.dumps(rh),
+                    status=200,
+                    mimetype="application/json")
+
+@main.route("/mslp")
+def displayMSLP():
+  mslp=openJSON(fileMSLP)
+  return Response(response=json.dumps(mslp),
+                    status=200,
+                    mimetype="application/json")
+
+@main.route("/tp")
+def displayTP():
+  tp=openJSON(fileTP)
+  return Response(response=json.dumps(tp),
+                    status=200,
+                    mimetype="application/json")
+
+if _name_ == '_main_':
+  main.run()
