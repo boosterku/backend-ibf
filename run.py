@@ -9,7 +9,7 @@ main = Flask(__name__)
 
 fileAbout='./about.json'
 fileKI='./ki.geojson'
-fileRH='./rh_more70.geojson'
+fileRH='./rh.geojson'
 fileMSLP='./mslp.geojson'
 fileTP='./tp.geojson'
 
@@ -59,7 +59,7 @@ def display_query():
     value = request.args.get('value')
     operator = request.args.get('operator')
     
-    fileOpen=f"/content/backend-ibf/{parameter}_jateng.geojson"
+    fileOpen=f"/content/backend-ibf/{parameter}.geojson"
     variabel=openJSON(fileOpen)
     features=variabel["features"]
   
