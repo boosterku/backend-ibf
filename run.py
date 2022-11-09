@@ -7,7 +7,7 @@ import json
 main = Flask(_name_)
 #run_with_ngrok(main)
 
-fileAbout='./aboutProject.json'
+fileAbout='./about.json'
 fileKI='./ki_clip.geojson'
 fileRH='./rh_clip_more70.geojson'
 fileMSLP='./mslp_clip.geojson'
