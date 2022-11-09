@@ -64,11 +64,11 @@ def display_query():
     features=variabel["features"]
   
     if operator=='lebihdari':
-      dataquery = [p for p in features if p["properties"]["value"] > int(nilai)]
+      dataquery = [p for p in features if p["properties"]["value"] > int(value)]
     elif operator=='kurangdari':
-      dataquery = [p for p in features if p["properties"]["value"] < int(nilai)]
+      dataquery = [p for p in features if p["properties"]["value"] < int(value)]
     elif operator=='samadengan':
-      dataquery = [p for p in features if p["properties"]["value"] == int(nilai)]
+      dataquery = [p for p in features if p["properties"]["value"] == int(value)]
     
     return Response(response=json.dumps(dataquery),
                     status=200,
