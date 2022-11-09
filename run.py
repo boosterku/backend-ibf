@@ -59,7 +59,7 @@ def display_query():
     value = request.args.get('value')
     operator = request.args.get('operator')
     
-    fileOpen=f"/content/backend-ibf/{parameter}.geojson"
+    fileOpen=f"./{parameter}.geojson"
     variabel=openJSON(fileOpen)
     features=variabel["features"]
   
