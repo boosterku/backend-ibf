@@ -8,10 +8,10 @@ main = Flask(__name__)
 #run_with_ngrok(main)
 
 fileAbout='./about.json'
-fileKI='./ki_clip.geojson'
-fileRH='./rh_clip_more70.geojson'
-fileMSLP='./mslp_clip.geojson'
-fileTP='./tp_clip_more0.geojson'
+fileKI='./ki.geojson'
+fileRH='./rh_more70.geojson'
+fileMSLP='./mslp.geojson'
+fileTP='./tp.geojson'
 
 def openJSON(file):
   with open(file) as f:
@@ -50,6 +50,27 @@ def displayMSLP():
 def displayTP():
   tp=openJSON(fileTP)
   return Response(response=json.dumps(tp),
+                    status=200,
+                    mimetype="application/json")
+
+@main.route('/query')
+def display_query():
+    parameter = request.args.get('parameter')
+    value = request.args.get('value')
+    operator = request.args.get('operator')
+    
+    fileOpen=f"/content/backend-ibf/{parameter}_jateng.geojson"
+    variabel=openJSON(fileOpen)
+    features=variabel["features"]
+  
+    if operator=='lebihdari':
+      dataquery = [p for p in features if p["properties"]["value"] > int(nilai)]
+    elif operator=='kurangdari':
+      dataquery = [p for p in features if p["properties"]["value"] < int(nilai)]
+    elif operator=='samadengan':
+      dataquery = [p for p in features if p["properties"]["value"] == int(nilai)]
+    
+    return Response(response=json.dumps(dataquery),
                     status=200,
                     mimetype="application/json")
 
