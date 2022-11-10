@@ -111,7 +111,7 @@ def send_status():
                     status=404,
                     mimetype="application/json")
 
-@main.route('/query')
+@main.route('/querygeo')
 def sent_status():                    
       tipe = request.args.get('tipe')
       category = request.args.get('category')
