@@ -1,0 +1,12 @@
+{
+  "ERROR": "Please check your query option", 
+  "Advise: Please choose these query": [
+    {
+      "parameter": "ki, rh, mslp, tp"
+      },{ 
+      "value": "value"
+      },{
+      "operator": "kurangdari, lebihdari, samadengan"
+     }
+  ]
+}

@@ -4,6 +4,8 @@ from flask import request
 #from flask_ngrok import run_with_ngrok
 import json
 
+from flask_cors import CORS
+
 main = Flask(__name__)
 #run_with_ngrok(main)
 
