@@ -1,1 +1,1 @@
-web: gunicorn run:main
+web: gunicorn run:pelatihan_ibf_app
